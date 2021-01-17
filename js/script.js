@@ -12,6 +12,7 @@ $(document).ready(function() {
     var display = document.getElementById('clock');
     var g = {hour: 'numeric', minute: 'numeric'};
     var f = {weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'};
+    var t = {month: 'long', day: 'numeric', }
 
     // display current date and time
     now.textContent = today.toLocaleString(f);
@@ -35,29 +36,8 @@ $(document).ready(function() {
     var twentytwo100 = document.body.children[1].children[14].children;
     // console.log(oh800[2]);  ***** this is the save button attached to 8am
     var hourAreas = [oh800, oh900, ten100, eleven100, twelve100, thirteen100, fourteen100, fifteen100, sixteen100, seventeen100, eighteen100, nineteen100, twenty100, twentyone100, twentytwo100]
-
-
-    // variables for input (and buttons)
-    
-//     $('.saveBtn').on('click', function() {
-//         // function to do local storage
-//     })
-//     // functions and methods
-//     $('textarea').on('load', function() {
-//         var $currentTime;
-//         $(hourAreas).each(function() {
-//             $blockStart = today.startOf('day').plus({hours: (8 + $currentElem)});
-//             $blockEnd = today.startOf('day').plus({hours: ((9) + $currentElem)});
-//             $color = hourAreas[$currentElem][1];
-//             $currentElem = $(this);
-//             console.log(this);
-//         })
-
-
-
-    // event listeners (need one for whole section of hour blocks to input into any of them)
-    // $(".saveBtn").on("click", saveItem);
-// })
+    // variables for input (and localStorage)
+    var times = [oh800[1], oh900[1], ten100[1], eleven100[1], twelve100[1], thirteen100[1], fourteen100[1], fifteen100[1], sixteen100[1], seventeen100[1], eighteen100[1], nineteen100[1], twenty100[1], twentyone100[1], twentytwo100[1]]
 
     function colorCode() {
         for (var i = 0; i < hourAreas.length; i++) {
@@ -66,55 +46,50 @@ $(document).ready(function() {
             var color = hourAreas[i][1];
             if (today > blockEnd) {
                 color.className = "col-8 past";
-            } else if (today > blockStart && today < blockEnd){
+            } else if (today > blockStart && today < blockEnd) {
                 color.className = "col-8 present";
             } else {
                 color.className = "col-8 future";
             };
-    // need to display from local storage
         }
-
     }
 
     function loadItems() {
-        var keybase = "Maggie-day-planner-";
-        var storage = localStorage.getItem(keybase);
-            // console.log("I made it this far");
+            var schedule = localStorage;
 
-        if(true) {
-            for(var j = 0; j < hourAreas.length; j++) {
-              var item = hourAreas[j][1];
-              console.log($(this), item)
-                // $(this).text
-            }
-            
-        //     $(time[1]).text
-        // }
-        }
-    }
+            times[0].textContent = schedule['8:00 AM'];
+            times[1].textContent = schedule['9:00 AM'];
+            times[2].textContent = schedule['10:00 AM'];
+            times[3].textContent = schedule['11:00 AM'];
+            times[4].textContent = schedule['12:00 PM'];
+            times[5].textContent = schedule['1:00 PM'];
+            times[6].textContent = schedule['2:00 PM'];
+            times[7].textContent = schedule['3:00 PM'];
+            times[8].textContent = schedule['4:00 PM'];
+            times[9].textContent = schedule['5:00 PM'];
+            times[10].textContent = schedule['6:00 PM'];
+            times[11].textContent = schedule['7:00 PM'];
+            times[12].textContent = schedule['8:00 PM'];
+            times[13].textContent = schedule['9:00 PM'];
+            times[14].textContent = schedule['10:00 PM'];
+            };
+        
+        
     $('.saveBtn').on('click', function (ev) {
         ev.preventDefault();
-        var keybase = "Maggie-day-planner-";
-        var button = $('.saveBtn');
         hourAreas;
         if(true) {
             for(var k = 0; k < hourAreas.length; k++) {
-                var timeStart = today.startOf('day').plus({hours: (8+k)});
-                var key = keybase + timeStart;
+                var timeStart = today.startOf('day').plus({hours: (8+k)}).toLocaleString(g);
+                var key = timeStart;
                 var event = (hourAreas[k][1].value);
                 localStorage.setItem(key, JSON.stringify(event));
-                console.log(localStorage);
             }
-             
-        console.log(button);
-    }} )
-        // if(save) {
-        //     localStorage stuff
-        // }
+        }    
+    } )
 
+    
         // calling functions
     colorCode();
     loadItems();
-    // document.addEventListener('DOMContentLoaded', fillSchedule)
-
     })
