@@ -4,5 +4,8 @@ KU bootcamp homework: We were tasked with creating a dayplanner which would disp
 
 I chose LuxonJs for the management of time because of it's connection to MomentJs. 
 
+![image](./assets/screencapture.png)
+
 ## Credits
-(Steve Griffith)[https://www.youtube.com/watch?v=vAuUzEwTbck&t=737s] was so helpful with Luxon. 
+
+[Steve Griffith](https://www.youtube.com/watch?v=vAuUzEwTbck&t=737s) was so helpful with Luxon and again with localStorage
