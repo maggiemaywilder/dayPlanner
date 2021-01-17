@@ -35,7 +35,7 @@ textarea{
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
-  
+  justify-content: center;
 }
 
 .hour {
@@ -77,25 +77,3 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
-/* .content {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-}
-
-.column1 {
-  flex: none;
-  width: 100px;
-}
-
-.column2 {
-  width:100%;
-}
-
-.column3 {
-  flex: none;
-  width: 100px;
-  height: 80px;
-  background-color: lightseagreen;
-} */

@@ -18,16 +18,11 @@ var eighteen100;
 var nineteen100;
 var twenty100;
 
-var startDay = DateTime.fromObject({hour: 08, minute:00}).toLocaleString({month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'});
-console.log(startDay);
-
 // variables for displaying on page
 var now = document.getElementById('currentDay');
 var f = {weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'};
 
-
 // variables for input (and buttons)
-var hourContent = document.querySelector('#content');
 
 var APP = {
     keybase: 'Maggie-day-planner-',
@@ -35,8 +30,6 @@ var APP = {
     // the input data from the fields
 };
 
-// buttons
-var save = document.querySelectorAll('saveBtn');
 
 // functions and methods
 now.textContent = today.toLocaleString(f);
@@ -46,8 +39,3 @@ now.textContent = today.toLocaleString(f);
 //     // }
 // }
 // note: d1 < d2 means is d1 before d2?
-
-// event listeners (need one for whole section of hour blocks to input into any of them)
-// hourContent.addEventListener("click", saveAppt);
-document.addEventListener('DOMContentLoaded', fillSchedule)
-document.addEventListener('DOMContentLoaded', colorCode);
