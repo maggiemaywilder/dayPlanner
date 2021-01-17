@@ -83,7 +83,8 @@ $(document).ready(function() {
                 var timeStart = today.startOf('day').plus({hours: (8+k)}).toLocaleString(g);
                 var key = timeStart;
                 var event = (hourAreas[k][1].value);
-                localStorage.setItem(key, JSON.stringify(event));
+                console.log(event);
+                localStorage.setItem(key, event);
             }
         }    
     } )
